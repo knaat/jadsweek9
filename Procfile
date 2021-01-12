@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run your-script.py
+web: sh setup.sh && streamlit run JADS_week_9.py
