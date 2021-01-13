@@ -77,7 +77,7 @@ if exercise1:
     with st.beta_expander("Documentation", False):
             st.write("""
                 The dataframe is by default displayed unfiltered. Select Filter dataframe to apply filters.
-                The filtering on year & continent and on country are implemetend to demonstrate some of the filtering options.
+                The filtering on year & continent and on country are implemented to demonstrate some of the filtering options.
                 With a slider object min-max filtering can also very easily be implemented. 
                 
                 The dataframe can be *sorted* per column by clicking on the column header.
@@ -251,17 +251,17 @@ if exercise3:
     markercolor = st.sidebar.color_picker('Pick a color of symbols in scatter plot', '#EA7272')
     markeredgecolor = st.sidebar.color_picker('Pick a color for edge of symbols in scatter plot', '#A80303')
 
-    year = st.sidebar.slider('Select the year to select', 1952, 2007, 1952, 5,)
-    dfyear = df_disp[df_disp['year'] == year].copy()
-
     st.subheader('Mapplotlib scatter plots')
     fig7, ax7 = plt.subplots(nrows=1, ncols=2, figsize=(12,4))
 
-    xscale = st.sidebar.radio('Set scale of x-axis to logarithmic',['No','Yes'],0)   
+    xscale = st.sidebar.radio('Set scale of x-axis of first plot to logarithmic',['No','Yes'],0)   
     if xscale == 'Yes':
         ax7[0].set_xscale('log')
     else:
         ax7[0].set_xscale('linear')
+
+    year = st.sidebar.slider('Select the year to plot in plot 1,3 & 4', 1952, 2007, 1952, 5,)
+    dfyear = df_disp[df_disp['year'] == year].copy()
 
     ax7[0].scatter(x=dfyear['gdpPercap'], y=dfyear['lifeExp'], color = markercolor, edgecolors = markeredgecolor )
     ax7[0].set(xlabel='GDP per capita (USD)', ylabel='Life expectancy',title='Year '+str(year))
