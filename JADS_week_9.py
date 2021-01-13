@@ -43,9 +43,9 @@ if exercise1:
     c1, dum, c2 = st.beta_columns((10,1,10))
 
     # Radio selector to switch on/off interactive filtering. Initialised to 'No'.
-    filter1 = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
+    filter = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
 
-    if filter1 == 'Yes':
+    if filter == 'Yes':
         st.sidebar.subheader('Filter on year & continent')
         year = st.sidebar.slider('Year', 1952, 2007, 1952, 5)
         continent = st.sidebar.radio('Continent', list(df['continent'].unique()))
@@ -99,10 +99,10 @@ if exercise2:
     c1, dum, c2 = st.beta_columns((10,1,10))
 
     # Radio selector to switch on/off interactive filtering. Initialised to 'No'.
-    filter2 = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
+    filter = st.sidebar.radio('Filter data', ['No', 'Yes'], 0)
 
-    if filter2 == 'Yes':
-        st.sidebar.subheader('Filter on year & county')
+    if filter == 'Yes':
+        st.sidebar.subheader('Filter on year & country')
         year = st.sidebar.slider('Year', 1952, 2007, 1952, 5)
         countries_sel = st.sidebar.multiselect('Country', df['country'].unique())
         st.sidebar.write('N.B. All countries assumed when no country selected')
