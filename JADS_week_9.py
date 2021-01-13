@@ -43,16 +43,17 @@ if exercise1:
     c1, dum, c2 = st.beta_columns((10,1,10))
 
     # Radio selector to switch on/off interactive filtering. Initialised to 'No'.
-    filter = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
+    filter1 = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
 
-    if filter == 'Yes':
+    if filter1 == 'Yes':
         st.sidebar.subheader('Filter on year & continent')
         year = st.sidebar.slider('Year', 1952, 2007, 1952, 5)
         continent = st.sidebar.radio('Continent', list(df['continent'].unique()))
 
         st.sidebar.subheader('Filter on country')
         countries_sel = st.sidebar.multiselect('Country', tuple(df['country'].unique()))
-
+  
+        st.sidebar.write('N.B. Deselect all countries to activate Filter on year & continent.')
         if countries_sel == []: 
             df_disp = df[(df['year'] == year) & (df['continent'] == continent)].copy()
             c1.subheader('Data frame filtered on year and continent')
@@ -78,6 +79,8 @@ if exercise1:
             st.write("""
                 The dataframe is by default displayed unfiltered. Select Filter dataframe to apply filters.
                 The filtering on year & continent and on country are implemented to demonstrate some of the filtering options.
+                Deselect countries to activate Filter on year & continent.
+
                 With a slider object min-max filtering can also very easily be implemented. 
                 
                 The dataframe can be *sorted* per column by clicking on the column header.
@@ -96,9 +99,9 @@ if exercise2:
     c1, dum, c2 = st.beta_columns((10,1,10))
 
     # Radio selector to switch on/off interactive filtering. Initialised to 'No'.
-    filter = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
+    filter2 = st.sidebar.radio('Filter dataframe', ['No', 'Yes'], 0)
 
-    if filter == 'Yes':
+    if filter2 == 'Yes':
         st.sidebar.subheader('Filter on year & county')
         year = st.sidebar.slider('Year', 1952, 2007, 1952, 5)
         countries_sel = st.sidebar.multiselect('Country', df['country'].unique())
