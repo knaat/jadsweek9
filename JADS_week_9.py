@@ -20,7 +20,7 @@ st.title('JADS Week 9 -  Visualisation exercises')
 st.sidebar.title('Controls sidebar')
 
 # Radio selector to choose between exercises.
-exercise = st.sidebar.radio('Exercise', ['Exercise 1', 'Exercise 2', 'Exercise 3'])
+exercise = st.sidebar.radio('Select the Exercise', ['Exercise 1', 'Exercise 2', 'Exercise 3'])
 
 exercise1=False
 exercise2=False
